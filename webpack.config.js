@@ -9,6 +9,7 @@ const PATHS = {
 module.exports = {
   devServer: {
     contentBase: PATHS.src,
+    publicPath: '/',
     hot: true,
     inline: true
   },
@@ -27,7 +28,7 @@ module.exports = {
     rules: [
       {
         test: /\.sass$/,
-        use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax']
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /\.js$/,
