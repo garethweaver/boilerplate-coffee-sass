@@ -1,5 +1,5 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const PATHS = {
@@ -24,10 +24,12 @@ module.exports = {
     rules: [
       {
         test: /\.sass$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!sass-loader?indentedSyntax'
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.js$/,
@@ -50,7 +52,9 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
     new HtmlWebpackPlugin({ template: path.join(PATHS.src, 'index.html') })
   ]
 }
