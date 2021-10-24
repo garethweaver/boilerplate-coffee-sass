@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rimraf dist && webpack --config webpack.config.prod.js",
+    "build": "rm -rf dist && webpack --config webpack.config.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@garethdweaver",
@@ -17,8 +17,6 @@
     "css-loader": "^6.4.0",
     "html-webpack-plugin": "^5.4.0",
     "mini-css-extract-plugin": "^2.4.3",
-    "postcss-loader": "^6.2.0",
-    "rimraf": "^3.0.2",
     "sass": "^1.43.3",
     "sass-loader": "^12.2.0",
     "style-loader": "^3.3.1",
