@@ -7,13 +7,6 @@ const PATHS = {
 }
 
 module.exports = {
-  devServer: {
-    contentBase: PATHS.src,
-    publicPath: '/',
-    hot: true,
-    inline: true
-  },
-
   mode: 'development',
 
   entry: [
@@ -28,7 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.sass$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.js$/,
@@ -51,7 +44,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({ template: path.join(PATHS.src, 'index.html') })
   ]
 }
